@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 
 
 # Time vector
-t = np.linspace(0, 10)
+t = np.linspace(0, 30)
 
 # Solve ODE
 x = odeint(mass_balance,initial_conditions.init,t)
