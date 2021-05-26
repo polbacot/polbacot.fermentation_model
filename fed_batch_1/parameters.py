@@ -9,6 +9,6 @@ k_i = 20     # g glucose / L
 y_x_s = 0.6  # g cell_biomass / g glucose
 
 # Process parameters
-V_max = 10           # L
+V_max = 5           # L
 feed_flow_rate = 0.5   # L / h
 glucose_feed = 10    # g glucose / L
