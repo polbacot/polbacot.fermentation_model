@@ -1,16 +1,8 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jan 17 20:07:48 2021
-
-@author: paucablop
-"""
-
-
 import numpy as np
-import parameters
-import dynamics
-
+from . import parameters
+from .flow_rate import flow_rate
+from kinetics.monod_inhibition import monod  
+from kinetics.monod_inhibition import inhibition_function
 
 
 def mass_balance(c, t):
@@ -21,11 +13,11 @@ def mass_balance(c, t):
     s[0, 1] = parameters.y_x_s
         
     # Calculate rates
-    mu = dynamics.monod(parameters, c[0]) 
-    inhibition = dynamics.inhibition(parameters, c[0])
+    mu = monod(parameters, c[0]) 
+    inhibition = inhibition_function(parameters, c[0])
     
     # Calculate feed_flow_rate
-    feed_flow_rate = dynamics.feed_flow_rate(parameters, c[2], t)
+    feed_flow_rate = flow_rate(parameters, c[2], t)
     
     # Differential equations
     dx1dt = mu * s[0, 0] * c[1] * inhibition + feed_flow_rate * \

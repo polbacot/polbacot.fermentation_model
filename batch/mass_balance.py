@@ -1,16 +1,6 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jan 17 20:07:48 2021
-
-@author: paucablop
-"""
-
-
 import numpy as np
-import parameters
-import kinetics
-
+from . import parameters
+from kinetics.monod import monod
 
 
 def mass_balance(c, t):
@@ -21,7 +11,7 @@ def mass_balance(c, t):
     s[0, 1] = parameters.y_x_s
     
     # Calculate rates
-    mu = kinetics.monod(parameters, c[0])
+    mu = monod(parameters, c[0])
     
     # Differential equations
     dxdt = mu * s[0, 0] * c[1] # Glucose

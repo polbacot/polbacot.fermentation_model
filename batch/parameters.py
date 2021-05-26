@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jan 17 18:29:57 2021
-
-@author: paucablop
-"""
-
 # Kinetic parameters
 mu_max = 0.5 # 1 / h
 k_s = 0.1    # g glucose / h
